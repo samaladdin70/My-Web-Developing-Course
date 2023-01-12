@@ -17,7 +17,7 @@ $y = 15;
 $y = $y + 5;
 echo $y;
 
-/* arithmatic operators */
+/* comparison operators */
 // is equal ==
 // is identical ===
 // != not equal
