@@ -10,7 +10,7 @@
 // explode(delemeter, string)  يقوم بتحويل بيانات من نوع النصي إلى بيانات من نوع ارراي 
 // implode(separator, array)  يقوم بتحويل بيانات من نوع ارراي إلى بيانات من نوع النصي
 
-$hello = "Hello World! and hello PHP, and Hello agin.";
+$hello = "Hello World! and hello PHP, and Hello again.";
 $search = "php";
 // echo strrpos(strtolower($hello), strtolower($search));
 //echo stripos($hello, $search, 0);
