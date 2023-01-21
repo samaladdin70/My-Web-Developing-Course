@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="coontainer-fluid w-100 p-5" style="height: 100vh;">
+    <div class="coontainer-fluid w-100 p-4" style="height: 100vh;">
         <div class="d-flex flex-column align-items-center mx-auto shadow p-4 rounded" style="max-width: 850px;">
             <form action="" method="get" class=" w-100">
                 <div class="row">
@@ -50,25 +50,26 @@ endif;
             </form>
             <div>
                 <?php
-                if (isset($_GET['submit'])) {
+                if (isset($_GET['submit'])) :
                     include('./mytools.php');
-                    echo "Number of Matches: <span class='text-danger'>" . article_analysis($_GET['article'], $_GET['search']) . "</span> Times";
-                }
+                    if ($_GET['article'] != '' && $_GET['search'] != '') :
+                        echo "Number of words in article: " . word_count($_GET['article']) . " & Number of search repeat: " . repeat_count($_GET['article'], $_GET['search']) . " with percentage of: " . percentage($_GET['article'], $_GET['search']) . " %"; ?>
+                <div class="w-100 mt-4">
+                    <div class="progress" role="progressbar" style="height:5px;" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100">
+                        <div class="progress-bar bg-danger"
+                            style="width: <?php echo percentage($_GET['article'], $_GET['search']); ?>%"></div>
+                    </div>
+                </div>
+                <div class="mt-3 w-100 bg-light" style="height: 210px; overflow:auto;">
+                    <?php echo replace($_GET['article'], $_GET['search']); ?>
+                </div>
+                <?php
+                    endif;
+                endif;
                 ?>
             </div>
 
-            <div class="w-100 mt-4">
-                <div class="progress" role="progressbar" style="height:5px;" aria-valuenow="0" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <div class="progress-bar bg-warning" style="width: 50%"></div>
-                </div>
-            </div>
-            <div class="mt-4 w-100 row">
-                <div class="col" style="max-height: 300px; overflow:auto;">
-
-                </div>
-
-            </div>
         </div>
 
     </div>

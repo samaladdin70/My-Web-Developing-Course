@@ -5,7 +5,17 @@ function fix_name($name)
     return ucwords(strtolower($name));
 }
 
-function article_analysis(string $article, string $search)
+
+
+
+function word_count($article)
+{
+    return str_word_count($article);
+}
+
+
+
+function repeat_count(string $article, string $search)
 {
     $article = trim($article);
     $search = trim($search);
@@ -18,9 +28,29 @@ function article_analysis(string $article, string $search)
             break;
         } else {
             $pos[] = $position;
-            // echo $position . "<br>";
+
             $counter = $position + 1;
         }
     }
-    return count($pos);
+    if (isset($pos)) {
+        $count = count($pos);
+        return $count;
+    } else {
+        return 0;
+    }
+}
+
+
+
+function replace(string $article, string $search)
+{
+    return str_ireplace($search, "<mark>$search</mark>", $article);
+}
+
+
+
+function percentage(string $article, string $search)
+{
+    $percentage = repeat_count($article, $search) / word_count($article) * 100;
+    return $percentage;
 }
