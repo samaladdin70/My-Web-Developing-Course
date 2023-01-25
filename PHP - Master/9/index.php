@@ -12,8 +12,11 @@
 </head>
 
 <body>
+    <!-- Container -->
     <div class="coontainer-fluid w-100 p-4" style="height: 100vh;">
         <div class="d-flex flex-column align-items-center mx-auto shadow p-4 rounded" style="max-width: 850px;">
+
+            <!-- The form -->
             <form action="" method="get" class=" w-100">
                 <div class="row">
                     <div class="col">
@@ -48,26 +51,70 @@ endif;
                 <button class="btn btn-dark mt-3 form-control" name="submit" type="submit">Search / Replace</button>
                 <button class="btn btn-warning mt-3 form-control" name="reset" type="reset">Reset</button>
             </form>
-            <div>
+            <!-- end form -->
+
+            <div class="w-100">
                 <?php
                 if (isset($_GET['submit'])) :
                     include('./mytools.php');
-                    if ($_GET['article'] != '' && $_GET['search'] != '') :
-                        echo "Number of words in article: " . word_count($_GET['article']) . " & Number of search repeat: " . repeat_count($_GET['article'], $_GET['search']) . " with percentage of: " . percentage($_GET['article'], $_GET['search']) . " %"; ?>
-                <div class="w-100 mt-4">
+                ?>
+
+                <!-- Statistics -->
+                <?php if ($_GET['article'] != '' && $_GET['search'] != '' && $_GET['replace'] == '') : ?>
+                <div class="d-flex justify-content-between mt-4">
+                    <div><?php echo "Repeat: " . repeat_count($_GET['article'], $_GET['search']) ?></div>
+                    <div>
+                        <?php echo "Exists: " . substr(percentage($_GET['article'], $_GET['search']) * word_count($_GET['search']), 0, 5) . " %" ?>
+                    </div>
+                    <div><?php echo "total words: " . word_count($_GET['article']) ?></div>
+                </div>
+                <div class="w-100 mt-1">
+
+                    <!-- progress bar -->
                     <div class="progress" role="progressbar" style="height:5px;" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100">
                         <div class="progress-bar bg-danger"
                             style="width: <?php echo percentage($_GET['article'], $_GET['search']); ?>%"></div>
                     </div>
                 </div>
-                <div class="mt-3 w-100 bg-light" style="height: 210px; overflow:auto;">
-                    <?php echo replace($_GET['article'], $_GET['search']); ?>
+
+                <!-- output -->
+                <div class="mt-3 w-100 bg-light p-2" style="height: 210px; overflow:auto;">
+                    <?php echo replace($_GET['article'], $_GET['search'], "<mark>$_GET[search]</mark>"); ?>
                 </div>
+
+
+                <?php elseif ($_GET['article'] != '' && $_GET['search'] != '' && $_GET['replace'] != '') : ?>
+                <div class="d-flex justify-content-between mt-4">
+                    <div><?php echo "Repeat: " . repeat_count($_GET['article'], $_GET['search']) ?></div>
+                    <div>
+                        <?php echo "Exists: " . substr(percentage(replace($_GET['article'], $_GET['search'], $_GET['replace']), $_GET['replace']) * word_count($_GET['replace']), 0, 5) . " %" ?>
+                    </div>
+                    <div>
+                        <?php echo "total words: " . word_count(replace($_GET['article'], $_GET['search'], $_GET['replace'])) ?>
+                    </div>
+                </div>
+                <div class="w-100 mt-1">
+
+                    <!-- progress bar -->
+                    <div class="progress" role="progressbar" style="height:5px;" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100">
+                        <div class="progress-bar bg-danger"
+                            style="width: <?php echo percentage($_GET['article'], $_GET['search']); ?>%"></div>
+                    </div>
+                </div>
+
+                <!-- output -->
+                <div class="mt-3 w-100 bg-light p-2" style="height: 210px; overflow:auto;">
+                    <?php echo replace($_GET['article'], $_GET['search'], "<mark>$_GET[replace]</mark>"); ?>
+                </div>
+
+
+
+
                 <?php
                     endif;
-                endif;
-                ?>
+                endif; ?>
             </div>
 
         </div>

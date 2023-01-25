@@ -42,9 +42,9 @@ function repeat_count(string $article, string $search)
 
 
 
-function replace(string $article, string $search)
+function replace(string $article, string $search, string $new)
 {
-    return str_ireplace($search, "<mark>$search</mark>", $article);
+    return str_ireplace($search, $new, $article);
 }
 
 
