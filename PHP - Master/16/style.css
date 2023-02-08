@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    width: 100%;
+    padding: 15px;
+}
+
+.main {
+    width: 400px;
+    margin: 0px auto;
+    position: relative;
+}
+
+form {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+form div {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+form input {
+    width: 335px;
+    height: 40px;
+    margin: 0;
+    border-radius: 3px 0 0 3px;
+    padding-left: 10px;
+    font-size: 1.2rem;
+}
+
+::placeholder {
+    color: rgb(203, 202, 202);
+}
+
+form button {
+    width: 70px;
+    height: 40px;
+    margin: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.output {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 4px 2px grey;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+.output:hover {
+    box-sizing: content-box;
+    padding: 10px;
+}
+
+.del {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: red;
+    color: white;
+    right: -70px;
+    top: -5px;
+    padding: 5px;
+    font-size: .8rem;
+    box-shadow: 1px 2px 8px black;
+}
+
+.reset:active {
+    transform: translateY(1px);
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+    box-shadow: 1px 2px 3px 1px black;
+}
