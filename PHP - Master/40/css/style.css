@@ -1,0 +1,60 @@
+header {
+    height: 75px;
+}
+
+main {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+footer {
+    height: 75px;
+    border: 1px solid black;
+}
+
+.task-input {
+    direction: rtl;
+}
+
+.form-control {
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border: 2px solid grey;
+}
+
+.row {
+    direction: rtl;
+    height: 70px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fef8f0;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+}
+
+.group {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+
+}
+
+.btn {
+    width: 70px;
+    margin-right: 5px;
+}
+
+.test {
+    text-decoration: line-through;
+}
