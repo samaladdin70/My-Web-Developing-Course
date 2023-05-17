@@ -41,7 +41,7 @@
                 <?php foreach ($output as $task) : ?>
                     <div class="row shadow-sm px-2 <?= ($task['status'] == 1) ? 'done-div' : '' ?>">
                         <div class="col-8 task">
-                            <input type="checkbox" name="" id="" class="form-check ms-2 main-check">
+                            <input type="checkbox" name="" id="check<?= $task['id'] ?>" class="form-check ms-2 main-check" <?= ($task['status'] == 1) ? 'checked' : '' ?>>
                             <h4 class="<?php echo ($task['status'] == 1) ? 'done' : '' ?>"><?= $task['name']; ?></h4>
                         </div>
                         <div class="col-4 group">
@@ -89,7 +89,7 @@
                                                 <input type="hidden" name="id" class="form-control task-input" value="<?= $task['id'] ?>">
                                             </div>
                                             <div class="input-group mb-3" style="direction: rtl;">
-                                                <input type="checkbox" name="status" class="form-check ms-2">
+                                                <input type="checkbox" name="status" id="checkEdit<?= $task['id'] ?>" class="form-check ms-2 checkEdit" <?= ($task['status'] == 1) ? 'checked' : '' ?>>
                                                 <label for="">تم التنفيذ</label>
                                             </div>
                                             <div style="direction: rtl;">
