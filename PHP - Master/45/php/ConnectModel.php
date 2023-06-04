@@ -9,7 +9,7 @@ class ConnectModel
 
     protected $server = 'mysql';
     protected $host = "localhost";
-    protected $db = "my_tasks";
+    protected $db = "test11";
     protected $charset = "utf8mb4";
     protected $username = "root";
     protected $password = "";
